@@ -1,3 +1,5 @@
 {
-    "LogPath": "C:/Users/chae0/Desktop/Workspace/Project/Logger/Test.log"
+    "LogPath": "C:/Users/chae0/Desktop/Workspace/Project/Logger/Test.log",
+    "Hostname": "localhost",
+    "Port": 8957
 }

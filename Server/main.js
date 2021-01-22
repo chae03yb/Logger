@@ -2,7 +2,7 @@
 
 const http = require("http");
 const { readFile, writeFile, appendFile } = require("fs");
-const { LogPath } = require("../Data/Configure.json");
+const { LogPath, Port, Hostname } = require("../Data/Configure.json");
 
 const server = http.createServer((req, res) => {
     switch (req.url) {
@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
                 let data = "";
                 req.on("data", chunk => data += chunk);
                 req.on("end", () => {
-                    appendFile(LogPath, data, (err) => {
+                    appendFile(LogPath, `[${new Date().toLocaleString()}]: ${data}`, (err) => {
                         if (err) {
                             res.writeHead(500, {"Content-Type": "text/plain; charset=utf8"});
                             res.end(err);
@@ -39,6 +39,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(8957, "localhost", () => {
+server.listen(Port, Hostname, () => {
     console.log("server is ready");
 });
