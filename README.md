@@ -1,2 +1,4 @@
 # Logger
-Just Logger
+http 서버를 이용해 원격으로 로그를 기록합니다.
+
+개발중
